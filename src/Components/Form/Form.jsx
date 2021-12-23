@@ -1,6 +1,7 @@
-import s from "./Form.module.css";
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+
+import s from "./Form.module.css";
 
 const Form = ({ addList }) => {
   // state = {

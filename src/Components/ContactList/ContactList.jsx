@@ -1,6 +1,7 @@
-import React from "react";
-import s from "./ContactList.module.css";
 import PropTypes from "prop-types";
+import React from "react";
+
+import s from "./ContactList.module.css";
 
 const ContactList = ({ filtered, del }) => {
   return (
