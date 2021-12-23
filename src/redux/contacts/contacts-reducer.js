@@ -5,6 +5,17 @@ import {
   delContact,
   changeFilter,
 } from "../contacts/contacts-actions";
+// import {
+//   setContactRequest,
+//   setContactSuccess,
+//   setContactError,
+//   addContactRequest,
+//   addContactSuccess,
+//   addContactError,
+//   delContactRequest,
+//   delContactSuccess,
+//   delContactError,
+// } from "../contacts/contacts-actions";
 
 // {
 //   contacts: {
