@@ -15,13 +15,6 @@ const optionsPost = (postToAdd) => ({
     "Content-Type": "application/json; charset=UTF-8",
   },
 });
-const optionsDelete = (postToDel) => ({
-  method: "DELETE",
-  body: JSON.stringify(postToDel),
-  headers: {
-    "Content-Type": "application/json; charset=UTF-8",
-  },
-});
 
 const addContact = async (contact) => {
   const res = await fetch(`${BASE_URL}`, optionsPost(contact));
@@ -31,8 +24,11 @@ const addContact = async (contact) => {
   return res.json();
 };
 
-const delContact = async (contact) => {
-  const res = await fetch(`${BASE_URL}`, optionsDelete(contact));
+const delContact = async (contacts) => {
+  //   console.log(contacts[0].id);
+  const res = await fetch(`${BASE_URL}/${contacts[0].id}`, {
+    method: "DELETE",
+  });
   if (res.status.ok) {
     return Promise.reject(new Error(res.statusText));
   }
