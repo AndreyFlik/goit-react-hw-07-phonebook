@@ -2,18 +2,13 @@ import { createReducer, combineReducers } from "@reduxjs/toolkit";
 // setContact,
 // addContact,
 // delContact,
+import { changeFilter } from "../contacts/contacts-actions";
+
 import {
-  changeFilter,
-  setContactRequest,
-  setContactSuccess,
-  setContactError,
-  addContactRequest,
-  addContactSuccess,
-  addContactError,
-  delContactRequest,
-  delContactSuccess,
-  delContactError,
-} from "../contacts/contacts-actions";
+  getContacts,
+  addNewContacts,
+  newDelContact,
+} from "./contscts-operations";
 // import {
 //   setContactRequest,
 //   setContactSuccess,
@@ -39,23 +34,40 @@ import {
 //   builder.addCase(delContact, (_, action) => action.payload);
 // });
 const entities = createReducer([], {
-  [setContactSuccess]: (_, action) => action.payload,
-  [addContactSuccess]: (state, action) => [action.payload, ...state],
-  [delContactSuccess]: (state, action) =>
+  [getContacts.fulfilled]: (_, action) => action.payload,
+  [addNewContacts.fulfilled]: (state, action) => [action.payload, ...state],
+  [newDelContact.fulfilled]: (state, action) =>
     state.filter((item) => item.id !== action.payload.id),
 });
+// const entities = createReducer([], {
+//   [setContactSuccess]: (_, action) => action.payload,
+//   [addContactSuccess]: (state, action) => [action.payload, ...state],
+//   [delContactSuccess]: (state, action) =>
+//     state.filter((item) => item.id !== action.payload.id),
+// });
 // .filter((itemId) => console.log(itemId.id))
 const isLoading = createReducer(false, {
-  [setContactRequest]: () => true,
-  [setContactSuccess]: () => false,
-  [setContactError]: () => false,
-  [addContactRequest]: () => true,
-  [addContactSuccess]: () => false,
-  [addContactError]: () => false,
-  [delContactRequest]: () => true,
-  [delContactSuccess]: () => false,
-  [delContactError]: () => false,
+  [getContacts.pending]: () => true,
+  [getContacts.fulfilled]: () => false,
+  [getContacts.rejected]: () => false,
+  [addNewContacts.pending]: () => true,
+  [addNewContacts.fulfilled]: () => false,
+  [addNewContacts.rejected]: () => false,
+  [newDelContact.pending]: () => true,
+  [newDelContact.fulfilled]: () => false,
+  [newDelContact.rejected]: () => false,
 });
+// const isLoading = createReducer(false, {
+//   [setContactRequest]: () => true,
+//   [setContactSuccess]: () => false,
+//   [setContactError]: () => false,
+//   [addContactRequest]: () => true,
+//   [addContactSuccess]: () => false,
+//   [addContactError]: () => false,
+//   [delContactRequest]: () => true,
+//   [delContactSuccess]: () => false,
+//   [delContactError]: () => false,
+// });
 
 const entitiesFilter = createReducer("", {
   [changeFilter]: (_, action) => action.payload,

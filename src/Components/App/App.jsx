@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { nanoid } from "@reduxjs/toolkit";
+// import { nanoid } from "@reduxjs/toolkit";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
@@ -37,7 +37,7 @@ const App = () => {
     } else {
       dispatch(
         addNewContacts({
-          id: nanoid(),
+          // id: nanoid(),
           name: data.name,
           phone: data.number,
         })
