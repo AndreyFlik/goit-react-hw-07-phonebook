@@ -6,8 +6,9 @@ import {
   getContacts,
   addNewContacts,
   newDelContact,
+  changeFilter,
 } from "../../redux/contacts/contscts-operations";
-import * as actions from "../../../src/redux/contacts/contacts-actions";
+// import * as actions from "../../../src/redux/contacts/contacts-actions";
 import Form from "../Form/Form";
 import ContactList from "../ContactList/ContactList";
 import Filter from "../Filter/Filter";
@@ -24,7 +25,7 @@ const App = () => {
   }, [dispatch]);
 
   const handleChangeFilter = (e) => {
-    dispatch(actions.changeFilter(e.target.value));
+    dispatch(changeFilter(e.target.value));
   };
   const addContact = (data) => {
     // console.log(data);

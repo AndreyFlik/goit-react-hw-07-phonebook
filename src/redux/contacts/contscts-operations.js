@@ -14,7 +14,7 @@ import {
 //   delContactSuccess,
 //   delContactError,
 // } from "../../redux/contacts/contacts-actions";
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createAction } from "@reduxjs/toolkit";
 
 // export const getContacts = () => async (dispatch) => {
 //   dispatch(setContactRequest());
@@ -36,6 +36,7 @@ export const getContacts = createAsyncThunk(
   }
 );
 
+export const changeFilter = createAction("contacts/changeFilter");
 // export const addNewContacts = (contact) => async (dispatch) => {
 //   dispatch(addContactRequest());
 

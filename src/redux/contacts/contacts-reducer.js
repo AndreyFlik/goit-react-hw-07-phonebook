@@ -2,12 +2,13 @@ import { createReducer, combineReducers } from "@reduxjs/toolkit";
 // setContact,
 // addContact,
 // delContact,
-import { changeFilter } from "../contacts/contacts-actions";
+// import { changeFilter } from "../contacts/contacts-actions";
 
 import {
   getContacts,
   addNewContacts,
   newDelContact,
+  changeFilter,
 } from "./contscts-operations";
 // import {
 //   setContactRequest,
