@@ -2,7 +2,7 @@ const BASE_URL = "https://61c47b11f1af4a0017d995b3.mockapi.io/contacts";
 
 const fetchContacts = async () => {
   const res = await fetch(`${BASE_URL}`);
-  if (res.status.ok) {
+  if (!res.ok) {
     return Promise.reject(new Error(res.statusText));
   }
   return res.json();
@@ -18,7 +18,7 @@ const optionsPost = (postToAdd) => ({
 
 const addContact = async (contact) => {
   const res = await fetch(`${BASE_URL}`, optionsPost(contact));
-  if (res.status.ok) {
+  if (!res.ok) {
     return Promise.reject(new Error(res.statusText));
   }
   return res.json();
@@ -29,7 +29,7 @@ const delContact = async (contacts) => {
   const res = await fetch(`${BASE_URL}/${contacts[0].id}`, {
     method: "DELETE",
   });
-  if (res.status.ok) {
+  if (!res.ok) {
     return Promise.reject(new Error(res.statusText));
   }
   return res.json();
